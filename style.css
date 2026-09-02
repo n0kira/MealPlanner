@@ -1,0 +1,17 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.sidebar .contnet {
+  width: 100%;
+}
