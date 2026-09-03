@@ -1,0 +1,254 @@
+/* 
+  PALETTE >:/ (made with Coolors.co)
+*/
+
+:root {
+  --color-bg: #162b29; /* background or header */
+  --color-surface: #1E3835; /* cards, containers, or panels */
+  --color-text: #E0E4CC; /* text color */
+  --color-accent-1: #8C7A5B; /* buttons or borders */
+  --color-accent-2: #52635B; /* highlights */
+  --color-highlight: #A3B29D; /* hover states or notifications */
+  --color-subtle: #122422; /* secondary titles or minor details */
+}
+
+/* 
+  General Styling
+*/
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 1.2em;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1 {
+  text-align: center;
+}
+
+.view.hidden,
+#home-view.hidden {
+  display: none;
+}
+
+.view {
+  text-align: center;
+}
+
+#home-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.daily-plan {
+  background-color: var(--color-surface);
+  border-radius: 12px;
+  border: 2px solid var(--color-accent-1);
+  margin-left: auto;
+  margin-right: auto;
+  width: 450px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 12px;
+}
+
+.meal-selection {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.meal-selection:not(:last-child) {
+  border-bottom: 2px solid var(--color-accent-1);
+}
+
+.meal-selection-type {
+  margin-top: -70px;
+  background-color: var(--color-surface);
+  width: 130px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 6px;
+  border: 2px solid var(--color-accent-1)
+}
+
+.meal-selection-add {
+  border-radius: 50%;
+  background-color: var(--color-accent-1);
+  border: 2px solid var(--color-bg);
+  color: var(--color-bg);
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  transition: transform .3s ease-in-out;
+}
+
+.meal-selection-add:hover {
+  transform: scale(111%);
+  border-color: var(--color-subtle);
+  color: var(--color-subtle);
+}
+
+.weekly-plan {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: #52635B;
+  border-radius: 24px;
+  border: 2px solid var(--color-accent-1);
+}
+
+.weekly-plan .daily-plan {
+  width: 300px;
+  height: 300px;
+}
+
+.weekly-plan .meal-selection-type {
+  margin-top: -40px;
+  font-size: 16px;
+}
+
+.weekly-plan .meal-selection-add {
+  width: 28px;
+  height: 28px;
+}
+
+.planner-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.planner-cell-day {
+  text-align: center;
+  width: 100%;
+  font-size: 25px;
+}
+
+/* 
+  HAMBURGER MENU STYLING >:|
+*/
+
+label .menu {
+  position: absolute;
+  right: -100px;
+  top: -100px;
+  z-index: 2;
+  width: 200px;
+  height: 200px;
+  background: var(--color-text);
+  border-radius: 50%;
+  -webkit-transition: .75s ease-in-out;
+  transition: .75 ease-in-out;
+  box-shadow: 0 0 0 0 var(--color-text), 0 0 0 0 var(--color-text);
+  cursor: pointer;
+}
+
+label .hamburger {
+  position: absolute;
+  top: 135px;
+  left: 50px;
+  width: 30px;
+  height: 2px;
+  background: var(--color-accent-1);
+  display: block;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+}
+
+label .hamburger:after,
+label .hamburger:before {
+  -webkit-transition: .5s ease-in-out;
+  transition: .5 ease-in-out;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--color-accent-1);
+}
+
+label .hamburger:before {
+  top: -10px;
+}
+
+label .hamburger::after {
+  bottom: -10px;
+}
+
+label input {
+  display: none;
+}
+
+label input:checked + .menu {
+  box-shadow: 0 0 0 100vw var(--color-text), 0 0 0 100vh var(--color-text);
+  border-radius: 0;
+}
+
+label input:checked + .menu .hamburger {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+label input:checked + .menu .hamburger:after {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  bottom: 0;
+}
+
+label input:checked + .menu .hamburger::before {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  top: 0;
+}
+
+label input:checked + .menu + ul {
+  opacity: 1;
+  visibility: visible;
+}
+
+label ul {
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  -webkit-transition: .25s .25s ease-in-out;
+  transition: .25s .25s ease-in-out;
+  visibility: hidden;
+}
+
+label a {
+  margin-bottom: 1em;
+  display: block;
+  color: var(--color-bg);
+  text-decoration: none;
+}
+
+ul {
+  font-size: 2.5em;
+}
+
