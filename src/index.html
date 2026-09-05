@@ -11,7 +11,7 @@
 
   <div class="page-container">
     <label>
-      <input type="checkbox">
+      <input type="checkbox" id="menu-toggle">
       <span class="menu">
         <span class="hamburger"></span>
       </span>
@@ -30,7 +30,7 @@
     <section id="home-view" class="view">
       <h2>Today's Meals</h2>
 
-      <div class="daily-plan">
+      <div class="daily-plan" data-day="1">
         <div class="breakfast meal-selection">
           <span class="meal-selection-type">Breakfast</span>
           <div class="meal-selection-content meal-selection-empty">
@@ -54,13 +54,13 @@
       </div>
     </section>
 
-    <section id="planner-view" class="view">
+    <section id="planner-view" class="view hidden">
       <h2>Weekly Planner</h2>
 
       <div class="weekly-plan">
         <div class="planner-cell">
           <span class="planner-cell-day">Monday</span>
-          <div class="daily-plan">
+          <div class="daily-plan" data-day="1">
           <div class="breakfast meal-selection">
             <span class="meal-selection-type">Breakfast</span>
             <div class="meal-selection-content meal-selection-empty">
@@ -86,7 +86,7 @@
 
         <div class="planner-cell">
           <span class="planner-cell-day">Tuesday</span>
-          <div class="daily-plan">
+          <div class="daily-plan" data-day="2">
           <div class="breakfast meal-selection">
             <span class="meal-selection-type">Breakfast</span>
             <div class="meal-selection-content meal-selection-empty">
@@ -112,7 +112,7 @@
 
         <div class="planner-cell">
           <span class="planner-cell-day">Wednesday</span>
-          <div class="daily-plan">
+          <div class="daily-plan" data-day="3">
           <div class="breakfast meal-selection">
             <span class="meal-selection-type">Breakfast</span>
             <div class="meal-selection-content meal-selection-empty">
@@ -138,7 +138,7 @@
 
         <div class="planner-cell">
           <span class="planner-cell-day">Thursday</span>
-          <div class="daily-plan">
+          <div class="daily-plan" data-day="4">
           <div class="breakfast meal-selection">
             <span class="meal-selection-type">Breakfast</span>
             <div class="meal-selection-content meal-selection-empty">
@@ -164,7 +164,7 @@
 
         <div class="planner-cell">
           <span class="planner-cell-day">Friday</span>
-          <div class="daily-plan">
+          <div class="daily-plan" data-day="5">
           <div class="breakfast meal-selection">
             <span class="meal-selection-type">Breakfast</span>
             <div class="meal-selection-content meal-selection-empty">
@@ -190,7 +190,7 @@
 
         <div class="planner-cell">
           <span class="planner-cell-day">Saturday</span>
-          <div class="daily-plan">
+          <div class="daily-plan" data-day="6">
           <div class="breakfast meal-selection">
             <span class="meal-selection-type">Breakfast</span>
             <div class="meal-selection-content meal-selection-empty">
@@ -216,7 +216,7 @@
 
         <div class="planner-cell">
           <span class="planner-cell-day">Sunday</span>
-          <div class="daily-plan">
+          <div class="daily-plan" data-day="7">
           <div class="breakfast meal-selection">
             <span class="meal-selection-type">Breakfast</span>
             <div class="meal-selection-content meal-selection-empty">
@@ -245,7 +245,7 @@
       </div>
     </section>
 
-    <section id="grocery-view" class="view">
+    <section id="grocery-view" class="view hidden">
       <h2>Grocery List</h2>
       <div class="grocery-list">
         <span class="grocery-list-placeholder">No items added!</span>
@@ -253,6 +253,19 @@
         </ul>
       </div>
     </section>
+
+    <section id="meals-view" class="view">
+      <h2>Results</h2>
+      <div class="meals-results">
+        <div class="meals-bar">
+          <button>X</button>
+          <input type="text">
+        </div>
+        <div class="scroll-box"></div>
+      </div>
+    </section>
   </main>
+
+  <script src="main.js"></script>
 </body>
 </html>

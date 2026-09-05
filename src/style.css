@@ -37,7 +37,8 @@ h1 {
 }
 
 .view.hidden,
-#home-view.hidden {
+#home-view.hidden,
+#meals-view.hidden {
   display: none;
 }
 
@@ -174,6 +175,28 @@ h1 {
 .grocery-list-items {
   list-style: none;
   padding: 0;
+}
+
+.meals-results {
+  background: var(--color-text);
+  width: 100%;
+  max-width: 1000px;
+  height: 750px;
+  border-radius: 12px;
+  border: 2px solid var(--color-highlight);
+}
+
+#meals-view {
+  background: var(--color-bg);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* 
