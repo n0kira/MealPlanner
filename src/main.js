@@ -14,9 +14,36 @@ document.querySelectorAll('.page-container ul li a').forEach(link => {
 // Today's Meal Plan
 async function fetchMeal(category) {
   try {
-    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
-    const data = await response.json();
-    return data.meals;
+    let response;
+    if (category == "breakfast") {
+      response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`);
+      const data = await response.json();
+      return data.meals;
+    } else {
+      const categoriesResp = await fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`);
+      const categoriesData = await categoriesResp.json();
+
+      const excludedCategories = ["Breakfast", "Dessert", "Side", "Starter", "Miscellaneous"];  
+
+      const categoriesList = categoriesData.categories
+        .map(cat => cat.strCategory)
+        .filter(cat => !excludedCategories.includes(cat));
+
+      const meals = categoriesList.map(cat =>
+        fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`).then(resp => resp.json())
+      );
+
+      response = await Promise.all(meals);
+
+      let allMeals = [];
+      response.forEach(item => {
+        if (item.meals) {
+          allMeals = allMeals.concat(item.meals);
+        }
+      });
+
+      return allMeals;
+    }
   } catch (e) {
     console.error("Error: " + e)
   }
@@ -44,11 +71,11 @@ addBtns.forEach(btn => {
 
     let category = undefined;
     if (breakfast) {
-      category = "Breakfast";
+      category = "breakfast";
     } else if (lunch) {
-      category = "Lunch";
+      category = "";
     } else if (dinner) {
-      category = "Dinner";
+      category = "";
     }
 
     const meals = await fetchMeal(category);
@@ -58,10 +85,19 @@ addBtns.forEach(btn => {
 
     meals.forEach(meal => {
       const div = document.createElement('div');
-      div.classList.add("meal");
-      div.textContent = meal.strMeal;
-      div.style.color = "rgb(255, 0, 0)";
+      div.classList.add("meal");      
 
+      const img = document.createElement('img');
+      img.src = meal.strMealThumb;
+      img.alt = meal.strMeal;
+      img.style.width = "100px";
+
+      const title = document.createElement('span');
+      title.textContent = meal.strMeal;
+      title.style.color = "red";
+
+      div.appendChild(img);
+      div.appendChild(title);
       scrollBox.appendChild(div);
     });
 
