@@ -238,10 +238,7 @@
             </div>
           </div>
           </div>
-        </div>
-
-        
-        
+        </div>   
       </div>
     </section>
 
@@ -258,11 +255,18 @@
       <h2>Results</h2>
       <div class="meals-results">
         <div class="meals-bar">
-          <button>X</button>
-          <input type="text">
-          <select id="meal-filter">
-            <option value="">All Categories</option>
-          </select>
+          <button class="meals-close">X</button>
+          <input type="text" class="meals-search" placeholder="Search meals...">
+          <div class="meals-filter">
+            <button type="button" class="meals-filter-toggle">Categories <span class="meals-filter-count"></span> ▽ </button>
+            <div class="meals-filter-panel hidden">
+              <div class="meals-filter-actions">
+                  <button type="button" class="meals-filter-all">Select All</button>
+                  <button type="button" class="meals-filter-none">Clear</button>
+              </div>
+              <div class="meals-filter-options"></div>
+            </div>
+          </div>
         </div>
         <div class="scroll-box"></div>
       </div>

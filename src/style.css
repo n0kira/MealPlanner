@@ -36,6 +36,8 @@ h1 {
   text-align: center;
 }
 
+.hidden,
+.meal.hidden,
 .view.hidden,
 #home-view.hidden,
 #meals-view.hidden {
@@ -207,6 +209,10 @@ h1 {
 
 .meal span {
   width: 100%;
+}
+
+.meals-filter-option {
+  color: var(--color-bg);
 }
 
 #meals-view {
