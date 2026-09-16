@@ -16,11 +16,14 @@
         <span class="hamburger"></span>
       </span>
       <ul>
-        <li> 
-          <a href="">Planner</a>
+        <li>
+          <a href="#" data-target="home-view">Daily Planner</a>
         </li>
         <li> 
-          <a href="">Grocery List</a>
+          <a href="#" data-target="planner-view">Weekly Planner</a>
+        </li>
+        <li> 
+          <a href="#" data-target="grocery-view">Grocery List</a>
         </li>
       </ul>
     </label>  
@@ -255,8 +258,10 @@
       <h2>Results</h2>
       <div class="meals-results">
         <div class="meals-bar">
-          <button class="meals-close">X</button>
-          <input type="text" class="meals-search" placeholder="Search meals...">
+          <div class="meals-bar-top">
+            <button class="meals-close">X</button>
+            <input type="text" class="meals-search" placeholder="Search meals...">
+          </div>
           <div class="meals-filter">
             <button type="button" class="meals-filter-toggle">Categories <span class="meals-filter-count"></span> ▽ </button>
             <div class="meals-filter-panel hidden">

@@ -186,6 +186,7 @@ h1 {
   height: 750px;
   border-radius: 12px;
   border: 2px solid var(--color-highlight);
+  overflow-y: hidden;
 }
 
 .scroll-box {
@@ -205,15 +206,108 @@ h1 {
   display: flex;
   justify-content: space-between;
   width: 50%;
+  border: 2px solid var(--color-highlight);
+  padding: 6px;
+  border-radius: 12px;
+  margin: 6px 0;
+  align-items: center;
+  transition: transform .5s ease-in-out;
+  cursor: pointer;
+}
+
+.meal:hover {
+  transform: scale(105%);
 }
 
 .meal span {
   width: 100%;
+  color: var(--color-bg);
+}
+
+.meal img {
+  border: 2px solid var(--color-highlight);
+  border-radius: 12px;
+}
+
+.meals-filter {
+  position: relative;
+}
+
+.meals-filter-panel {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  background-color: var(--color-highlight);
+  border: 2px solid var(--color-accent-2);
+  border-radius: 6px;
+  height: 300px;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.meals-filter-panel button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: large;
+}
+
+.meals-filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
 }
 
 .meals-filter-option {
   color: var(--color-bg);
+  margin: 6px;
+  padding: 3px;
+  border-radius: 6px;
+  cursor: pointer;
 }
+
+.meals-bar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.meals-search {
+  border-radius: 6px;
+  background: var(--color-text);
+  border: 2px solid var(--color-highlight);
+  color: var(--color-bg);
+  height: 35px;
+}
+
+.meals-close {
+  color: var(--color-bg);
+  background: var(--color-text);
+  border: 2px solid var(--color-highlight);
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.meals-filter-toggle {
+  color: var(--color-bg);
+  background: var(--color-text);
+  border: 2px solid var(--color-highlight);
+  border-radius: 16px;
+}
+
+.selected-meal-display button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: large;
+  color: rgb(117, 6, 6);
+}
+
 
 #meals-view {
   background: var(--color-bg);
