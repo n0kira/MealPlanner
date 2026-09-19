@@ -20,6 +20,7 @@
   box-sizing: border-box;
 }
 
+
 html {
   font-size: 18px;
 }
@@ -36,6 +37,7 @@ h1 {
   text-align: center;
 }
 
+
 .hidden,
 .meal.hidden,
 .view.hidden,
@@ -46,6 +48,12 @@ h1 {
 
 .view {
   text-align: center;
+}
+
+.page-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 }
 
 #home-view {
@@ -327,7 +335,7 @@ h1 {
 */
 
 label .menu {
-  position: absolute;
+  position: fixed;
   right: -100px;
   top: -100px;
   z-index: 2;
@@ -409,7 +417,7 @@ label input:checked + .menu + ul {
 label ul {
   font-size: 2.5em;
   z-index: 3;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -426,4 +434,37 @@ label a {
   display: block;
   color: var(--color-bg);
   text-decoration: none;
+}
+
+/*
+  RESPONSIVE
+*/
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+
+  h1 {
+    margin: 6px;
+    text-align: left;
+  }
+  
+  .weekly-plan {
+    grid-template-columns: 1fr;
+    padding: 16px 0;
+  }
+
+  .meal {
+    width: 90%;
+  }
+
+  .meals-results {
+    width: 95%;
+    height: 90vh;
+  }
+
+  .meals-filter-panel {
+    width: 90vw;
+  }
 }

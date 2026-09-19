@@ -161,7 +161,7 @@ function displayHome(type, meal, dayId = "1") {
     });
 
     const mealName = document.createElement("span");
-    mealName.innerHTML = meal.strMeal;
+    mealName.textContent = meal.strMeal;
   
     selectedMeal.appendChild(removeBtn);
     selectedMeal.appendChild(mealName);
@@ -233,7 +233,10 @@ document.addEventListener("click", (event) => {
 });
 
 filterAllBtn.addEventListener("click", () => {
-  filterOptionsList.querySelectorAll(`input[type="checkbox"]`).forEach(checkbox => {
+  filterOptionsList.querySelectorAll(`.meals-filter-option`).forEach(option => {
+    const text = option.querySelector("span");
+    const checkbox = option.querySelector(`input[type="checkbox"]`);
+    text.style.textDecoration = "none";
     checkbox.checked = true;
     activeCategories.add(checkbox.value);
   });
@@ -242,7 +245,10 @@ filterAllBtn.addEventListener("click", () => {
 });
 
 filterNoneBtn.addEventListener("click", () => {
-  filterOptionsList.querySelectorAll(`input[type="checkbox"]`).forEach(checkbox => {
+  filterOptionsList.querySelectorAll(`.meals-filter-option`).forEach(option => {
+    const text = option.querySelector("span");
+    const checkbox = option.querySelector(`input[type="checkbox"]`);
+    text.style.textDecoration = "line-through";
     checkbox.checked = false;
   });
   activeCategories.clear();
@@ -346,8 +352,8 @@ function renderMeals(meals) {
         saveTodayMeal(type, null, currentDayId); 
       });
 
-      const mealName = document.createElement('span');
-      mealName.innerHTML = title.textContent;
+      const mealName = document.createElement("span");
+      mealName.textContent = meal.strMeal;
 
       selectedMeal.appendChild(removeBtn);
       selectedMeal.appendChild(mealName);
