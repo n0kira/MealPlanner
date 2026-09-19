@@ -1,0 +1,12 @@
+{
+  "background_color": "#162b29",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "What's Fresh?",
+  "orientation": "any",
+  "scope": "/MealPlanner/",
+  "short_name": "What's Fresh?",
+  "start_url": "/MealPlanner/",
+  "theme_color": "#162b29",
+  "description": "What's Fresh?\n\nAlways stressed about choosing what to eat? Easy, use What's Fresh? and you won't be feeling like that ever again!\n\nPlan meals for your whole week and relax."
+}
